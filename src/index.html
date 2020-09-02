@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>福州市政充电设施运营监管平台</title>
+  <!-- <script src="js/liveplayer-lib.min.js"></script> -->
+  <script>
+    //var ipcPath="http://192.168.0.201:10000/"
+     var ip = "http://www.tcinfo.cn:8080/evcs/"
+    var socketIp = 'http://www.tcinfo.cn:9092';
+    
+	  var webappsPath  = "http://www.tcinfo.cn:8080/";
+	  var contextPath = "evcs/"
+
+    function downloadWeb(){
+       url = webappsPath + 'download/chrome.exe';
+       document.write('<div style="position: absolute; background: #eee; z-index:9999999; left:0; right:0; top:0; bottom:0; padding:10px;">你的浏览器版本过低，请切换到浏览器极速模式或下载最新的谷歌浏览器。点此下载安装。<a href="' + url + '">点此下载安装</a></div>')
+    }
+
+    function IEVersion() {
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+            var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
+            var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+            if(isIE) {
+                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                reIE.test(userAgent);
+                var fIEVersion = parseFloat(RegExp["$1"]);
+                if(fIEVersion == 7) {
+                    return 7;
+                } else if(fIEVersion == 8) {
+                    return 8;
+                } else if(fIEVersion == 9) {
+                    return 9;
+                } else if(fIEVersion == 10) {
+                    return 10;
+                } else {
+                    return 6;//IE版本<=7
+                }   
+            } else if(isEdge) {
+                return 12;//edge
+            } else if(isIE11) {
+                return 11; //IE11  
+            }else{
+                return -1;//不是ie浏览器
+            }
+    }
+    
+    function getChromeVersion() {
+        var arr = navigator.userAgent.split(' '); 
+        var chromeVersion = '';
+        for(var i=0;i < arr.length;i++){
+            if(/chrome/i.test(arr[i]))
+            chromeVersion = arr[i]
+        }
+        if(chromeVersion){
+            return Number(chromeVersion.split('/')[1].split('.')[0]);
+        } else {
+            return false;
+        }
+    }
+
+    if(IEVersion()>0){
+        downloadWeb();
+    }
+    if(getChromeVersion()) {
+        var version = getChromeVersion();
+        if(version < 52) {
+           downloadWeb();
+        }
+    }
+
+     
+    
+	 
+
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
+</html>

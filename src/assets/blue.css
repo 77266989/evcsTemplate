@@ -1,0 +1,58 @@
+
+  :root {
+     --head-bg-color: rgba(10,32,56,0) ;/* 头背景 */
+    --head-logo-color: rgba(10,32,56,0) ;/* 头logo背景 */
+    --nav-color: rgba(19,131,231,0.2);/* 导航背景 */
+    --main-bg-color: rgba(19,131,231,0) ;
+    --main-bg-border:0; 
+
+    --color1: #00caff;
+    --color2: #00faa8;
+    --color3: #e3dd49;
+  }
+
+  #app ,.el-drawer{
+    background-image: url('~@/../static/indexbg.jpg');  background-size: cover; 
+  }
+
+  .el-header {
+    /* background-color: #B3C0D1; */
+    height: 100px !important; background-image: url('~@/../static/new/hdbg.png'); padding: 0;
+  }
+  .el-menu {
+    background-color: transparent !important; border: 0!important;
+}
+
+.el-menu--horizontal>.el-menu-item{height: 51px; line-height: 51px; width: 136px;padding: 0; text-align: center; font-size: 16px;}
+.el-menu--horizontal>.el-submenu .el-submenu__title{height: 51px; line-height: 51px;width: 120px; padding: 0;text-align: center; margin-right: -10px; font-size: 16px;}
+
+.el-menu--horizontal>.el-menu-item.is-active{background-image: url('~@/../static/new/mbgg.png') !important; border: 0 !important; color: #63cab5 !important;}
+
+.app-nav-wrap {
+  width: 100%;
+  
+}
+.el-menu{border: 0}
+
+.el-menu-item i,.el-submenu__title i{color: rgba(255,255,255,1)}
+
+.el-submenu__title{ background:  transparent !important;}
+
+.iconfont{
+  margin-right: 5px;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.el-menu-item:focus, .el-menu-item:hover{ background-color: #09433a!important;}
+
+.el-menu-item-group{ background-color: rgba(1,158,252,.7)}
+
+.namemm{ position: absolute; left: 0; bottom: 10px; width: 100%; height: 20px; font-size: 10px; line-height: 20px; text-align: center; color: rgba(255,255,255,1)}
+
+.is-active .namemm,.is-active .is-active .el-submenu__title i{color: rgb(255, 208, 75)}
+/* .janxyM .el-menu-item, .janxyM .el-submenu__title{height: 70px;}  */
+.el-menu-item-group__title{padding: 0}
+.janxyM { position: absolute; left: 0; top: 0; bottom: 0; right: 0; overflow-x: hidden}
