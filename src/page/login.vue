@@ -58,11 +58,16 @@ import axios from 'axios';
    
     methods: {
       onSubmit() {
-        // this.loading = true;
-        // this.$post('login/loginValid',this.form)
-        // .then((response) => {
-        //     ///this.$router.push({ path: '/admin' })
-        // })
+        this.loading = true;
+        this.$post('login/loginValid',this.form)
+        .then((response) => {
+            if(response.success){
+              this.$store.commit("changeUser", response.user);
+              this.$router.push({ path: '/admin' })
+            }else{
+                this.loading = false;
+            }
+        })
       }
     }
   }
